@@ -5,6 +5,7 @@ import {
   createJsonSchemaTransformObject,
   jsonSchemaTransform,
 } from 'fastify-type-provider-zod'
+
 import { API_DOCS_PREFIX } from '~/config/api'
 import { UserResponseSchema } from '~/schemas'
 
@@ -12,8 +13,8 @@ export const swaggerPlugin = fp(async (fastify) => {
   await fastify.register(swagger, {
     openapi: {
       info: {
-        title: 'Education API',
         description: 'API documentation',
+        title: 'Education API',
         version: '1.0.0',
       },
     },

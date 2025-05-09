@@ -1,6 +1,10 @@
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
+
 import status from 'http-status'
-import { CreateUserSchema, type User, UserResponseSchema } from '~/schemas'
+
+import type { User } from '~/schemas'
+
+import { CreateUserSchema, UserResponseSchema } from '~/schemas'
 
 export async function userRoutes(fastifyInstance: FastifyInstance) {
   fastifyInstance.post(
@@ -28,8 +32,8 @@ export async function userRoutes(fastifyInstance: FastifyInstance) {
           ...result.data,
           id: crypto.randomUUID(),
         },
-        statusCode: status.CREATED,
         message: 'User created successfully',
+        statusCode: status.CREATED,
       }
       return reply.status(status.CREATED).send(user)
     },

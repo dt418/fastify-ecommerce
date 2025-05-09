@@ -1,6 +1,8 @@
 // config/env.ts
 import type { FastifyServerOptions } from 'fastify'
 
+import process from 'node:process'
+
 export const environment = process.env.NODE_ENV ?? 'production'
 
 export const envToLogger: Record<
@@ -9,11 +11,11 @@ export const envToLogger: Record<
 > = {
   development: {
     transport: {
-      target: 'pino-pretty',
       options: {
-        translateTime: 'HH:MM:ss Z',
         ignore: 'pid,hostname',
+        translateTime: 'HH:MM:ss Z',
       },
+      target: 'pino-pretty',
     },
   },
   production: true,
