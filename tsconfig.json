@@ -13,6 +13,9 @@
       "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
+    "types": [
+      "node"
+    ],
     "allowImportingTsExtensions": false,
     "allowJs": true,
     // Best practices

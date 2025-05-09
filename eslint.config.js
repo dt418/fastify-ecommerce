@@ -1,4 +1,5 @@
 import antfu from '@antfu/eslint-config'
+import drizzle from 'eslint-plugin-drizzle'
 import perfectionist from 'eslint-plugin-perfectionist'
 
 export default antfu({
@@ -11,10 +12,13 @@ export default antfu({
     '**/out/**',
   ],
   plugins: {
+    drizzle,
     perfectionist,
   },
   react: false,
   rules: {
+    'drizzle/enforce-delete-with-where': 'error',
+    'drizzle/enforce-update-with-where': 'error',
     'perfectionist/sort-imports': [
       'error',
       {
